@@ -1,0 +1,10 @@
+{
+  "messageId": "sample-email-address",
+  "threadId": "t-sample-email-address",
+  "from": "Dana Ortiz <dana.ortiz@client001.example>",
+  "subject": "Restock for Springfield",
+  "snippet": "Hi, Could you send 15 cartons of HA-1037 to our Springfield office as usual? Thanks, Dana Ortiz Orti",
+  "body": "Hi,\n\nCould you send 15 cartons of HA-1037 to our Springfield office as usual?\n\nThanks,\nDana Ortiz\nOrtiz Dental Supply\ndana.ortiz@client001.example",
+  "dateHeader": "Fri, 30 Oct 2026 11:25:00 +0000",
+  "receivedAt": "2026-10-30T11:25:00Z"
+}

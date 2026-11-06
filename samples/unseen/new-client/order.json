@@ -1,0 +1,22 @@
+{
+  "reference": "HPC-1001",
+  "customer": "Harbor Point Clinics, Ballard",
+  "lines": [
+    {
+      "sku": "HP-0001",
+      "quantity": 12
+    },
+    {
+      "sku": "HP-0002",
+      "quantity": 5
+    }
+  ],
+  "address": {
+    "street": "5410 Leary Ave NW",
+    "city": "Seattle",
+    "region": "WA",
+    "postal": "98107",
+    "country": "US"
+  },
+  "notes": "Clinic receiving opens at 07:30."
+}

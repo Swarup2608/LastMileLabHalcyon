@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 12" width="1280" height="12" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#FBBF24" stop-opacity="0"/><stop offset=".3" stop-color="#FBBF24"/><stop offset=".5" stop-color="#F472B6"/><stop offset=".7" stop-color="#2DD4BF"/><stop offset="1" stop-color="#2DD4BF" stop-opacity="0"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="-1 0;1 0" dur="5s" repeatCount="indefinite"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="5" width="1280" height="2" rx="1" fill="#94A3B8" fill-opacity=".18"/>
+  <rect x="0" y="5" width="1280" height="2" rx="1" fill="url(#g)"/>
+</svg>

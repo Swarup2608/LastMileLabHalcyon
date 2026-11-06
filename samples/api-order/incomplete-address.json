@@ -1,0 +1,15 @@
+{
+  "reference": "PO-55122",
+  "lines": [
+    {
+      "productId": "P0001",
+      "quantity": 10
+    }
+  ],
+  "address": {
+    "street": "Springfield office",
+    "city": "",
+    "region": "",
+    "postal": ""
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "messageId": "unseen-email-machine-format",
+  "threadId": "t-unseen-email-machine-format",
+  "from": "Dana Ortiz <dana.ortiz@client001.example>",
+  "subject": "ORDERS 20261207-0031",
+  "snippet": "HDR|PO=88213|DATE=20261207|SHIPMETHOD=STD SHP|NAME=ORTIZ DENTAL SUPPLY|ADDR1=200 WEST MADISON STREET",
+  "body": "HDR|PO=88213|DATE=20261207|SHIPMETHOD=STD\nSHP|NAME=ORTIZ DENTAL SUPPLY|ADDR1=200 WEST MADISON STREET|ADDR2=FLOOR 3|CITY=CHICAGO|ST=IL|ZIP=60606|CTRY=US\nLIN|001|SKU=HA-1037|QTY=12|UOM=CS\nLIN|002|SKU=OU-1111|QTY=4|UOM=CS\nEND|LINES=2\n\n--\nThis message was generated automatically. Do not reply.",
+  "dateHeader": "Mon, 07 Dec 2026 12:45:00 +0000",
+  "receivedAt": "2026-12-07T12:45:00Z"
+}

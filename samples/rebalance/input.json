@@ -1,0 +1,51 @@
+{
+  "settings": {
+    "orderUnit": "cartons",
+    "oosBasis": "cartons missed at the nearest warehouse over the last 30 days",
+    "presentValueDefinition": "available cartons x unit price"
+  },
+  "products": [
+    {
+      "product": "HA-1037",
+      "productId": "P0001",
+      "productName": "Compact storage bin",
+      "totalAvailability": 185,
+      "warehouses": [
+        {
+          "id": "W1",
+          "orders": 65,
+          "outOfStockPercentage": 23.1,
+          "stockoutsAtNearest": 0,
+          "presentValue": null,
+          "availableStock": 35,
+          "reservedStock": 5,
+          "safetyBuffer": 40,
+          "incomingStock": null,
+          "distanceToCustomer": 150
+        },
+        {
+          "id": "W2",
+          "orders": 0,
+          "outOfStockPercentage": 0,
+          "stockoutsAtNearest": 0,
+          "presentValue": null,
+          "availableStock": 150,
+          "reservedStock": 5,
+          "safetyBuffer": 40,
+          "incomingStock": null,
+          "distanceToCustomer": 200
+        }
+      ],
+      "routes": [
+        {
+          "from": "W2",
+          "to": "W1",
+          "distance": 200,
+          "cost": null,
+          "deliveryTime": null,
+          "deliveryTimeUnit": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "address": {
+    "street": "200 West Madison Street",
+    "city": "Chicago",
+    "region": "IL",
+    "postal": "60606"
+  },
+  "lines": {
+    "0": {
+      "quantity": 30
+    }
+  },
+  "note": "Dock 4"
+}

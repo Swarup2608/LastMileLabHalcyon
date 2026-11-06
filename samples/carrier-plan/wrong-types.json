@@ -1,0 +1,104 @@
+{
+  "status": "OK",
+  "orders": [
+    {
+      "id": "REQ-7F3A21",
+      "priority": "SAME_DAY",
+      "ranking": [
+        {
+          "rank": 1,
+          "carrier": "F",
+          "price": 12.52,
+          "late_pct": 25,
+          "score": "high",
+          "tie_break": null,
+          "available_at_assignment": null
+        },
+        {
+          "rank": 2,
+          "carrier": "A",
+          "price": 16.69,
+          "late_pct": 25,
+          "score": 74.2,
+          "tie_break": null,
+          "available_at_assignment": null
+        }
+      ],
+      "recommended": "F",
+      "assigned": "F",
+      "assigned_price": 12.52,
+      "capacity_after_assignment": null,
+      "same_day": {
+        "status": "CONFIRMED",
+        "earliest_pickup": "14:00",
+        "same_day_cutoff": "18:00",
+        "commitment_verified": true,
+        "appointment_booked": false
+      },
+      "review": [],
+      "dispatch_ready": true
+    },
+    {
+      "id": "REQ-9C0D44",
+      "priority": "SAME_DAY",
+      "ranking": [
+        {
+          "rank": 1,
+          "carrier": "F",
+          "price": 12.52,
+          "late_pct": 44,
+          "score": 70.1,
+          "tie_break": null,
+          "available_at_assignment": null
+        },
+        {
+          "rank": 2,
+          "carrier": "A",
+          "price": 16.69,
+          "late_pct": 24,
+          "score": 68,
+          "tie_break": null,
+          "available_at_assignment": null
+        }
+      ],
+      "recommended": "F",
+      "assigned": "F",
+      "assigned_price": 12.52,
+      "capacity_after_assignment": null,
+      "same_day": {
+        "status": "PENDING_CONFIRMATION",
+        "earliest_pickup": null,
+        "same_day_cutoff": null,
+        "commitment_verified": false,
+        "appointment_booked": false
+      },
+      "review": [
+        "SAME_DAY_UNCONFIRMED"
+      ],
+      "dispatch_ready": false
+    }
+  ],
+  "capacity": [
+    {
+      "carrier": "F",
+      "before_batch": null,
+      "assigned": 2,
+      "remaining": null,
+      "status": "UNKNOWN",
+      "order_ids": [
+        "REQ-7F3A21",
+        "REQ-9C0D44"
+      ]
+    }
+  ],
+  "pickup_groups": [],
+  "summary": {
+    "total_cost_est": 25.04,
+    "review_order_ids": [
+      "REQ-9C0D44"
+    ],
+    "missing_data": [
+      "carrier capacity"
+    ]
+  }
+}

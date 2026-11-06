@@ -1,0 +1,7 @@
+A. Order ID: REQ-7F3A21
+   Recommended carrier: F (score 81.4)
+   Dispatch: ready
+
+B. Order ID: REQ-9C0D44
+   Recommended carrier: F
+   Dispatch: waiting for same-day confirmation

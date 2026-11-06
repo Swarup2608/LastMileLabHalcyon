@@ -1,0 +1,19 @@
+{
+  "customer": "Ortiz Dental Supply",
+  "products": [
+    {
+      "sku": "HA-1037",
+      "quantity": 15
+    }
+  ],
+  "address": "Springfield office",
+  "city": "Springfield",
+  "state": "MISSING",
+  "postal_code": "unknown",
+  "address_status": "INCOMPLETE",
+  "missing": [
+    "state",
+    "postal_code"
+  ],
+  "confidence": 0.55
+}

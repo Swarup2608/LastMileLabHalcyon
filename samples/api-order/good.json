@@ -1,0 +1,19 @@
+{
+  "reference": "PO-55120",
+  "customer": "Ortiz Dental Supply",
+  "lines": [
+    {
+      "productId": "P0001",
+      "quantity": 20
+    }
+  ],
+  "address": {
+    "street": "200 West Madison Street",
+    "suite": "Floor 3",
+    "city": "Chicago",
+    "region": "IL",
+    "postal": "60606",
+    "country": "US"
+  },
+  "notes": "Dock 4, deliveries before 16:00."
+}

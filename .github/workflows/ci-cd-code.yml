@@ -1,0 +1,208 @@
+# Monorepo deploy: builds and deploys only the app(s) whose folder changed.
+#   web/ -> web App Service (Next.js standalone server)
+#   api/ -> API App Service (compiled Express server)
+# Auth is each app's publish profile - no Azure sign-in or service principal.
+#
+# One-time setup in GitHub (Settings > Secrets and variables > Actions):
+#   secret   AZURE_WEBAPP_PUBLISH_PROFILE  the web App Service's downloaded publish profile file (whole contents)
+#   variable AZURE_WEBAPP_NAME             the web App Service name
+#   secret   AZURE_API_PUBLISH_PROFILE     the API App Service's downloaded publish profile file (whole contents)
+#   variable AZURE_API_NAME                the API App Service name
+# In Azure: App Service > Configuration > General settings > "SCM Basic Auth Publishing Credentials" = On.
+#
+# A publish-profile deploy can't set the startup command, and each package below is already built, so in Azure, on
+# both apps (Configuration):
+#   General settings > Startup Command   web: node server.js        API: node dist/server.js
+#   Application settings                 SCM_DO_BUILD_DURING_DEPLOYMENT = false (or absent), so Azure doesn't rebuild
+#   General settings > Stack             Node 24, the same as below
+# Without a startup command Azure runs `npm start`; each package's start script is set to the same command, so that
+# works too.
+
+name: CI-CD (App Service code)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: "24.x"
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      web: ${{ steps.filter.outputs.web }}
+      api: ${{ steps.filter.outputs.api }}
+      e2e: ${{ steps.filter.outputs.e2e }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            web:
+              - 'web/**'
+              - '.github/workflows/ci-cd-code.yml'
+            api:
+              - 'api/**'
+              - '.github/workflows/ci-cd-code.yml'
+            e2e:
+              - 'web/**'
+              - 'api/**'
+              - 'db/**'
+              - 'e2e/**'
+              - 'docker-compose.yml'
+              - '.github/workflows/ci-cd-code.yml'
+
+  build-web:
+    needs: changes
+    if: github.event_name == 'workflow_dispatch' || needs.changes.outputs.web == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install, lint and build
+        run: |
+          npm ci
+          npm run lint
+          npm run build
+
+      # The standalone bundle's package.json keeps the app's "start": "next start", but next isn't in its node_modules
+      # ("Cannot find module"). Its start script becomes node server.js, so Azure's default `npm start` works.
+      - name: Package standalone server
+        run: |
+          cp -r .next/static .next/standalone/.next/static
+          cp -r public .next/standalone/public
+          test -f .next/standalone/server.js
+          node -e "const f='.next/standalone/package.json',fs=require('fs'),p=JSON.parse(fs.readFileSync(f,'utf8'));p.scripts={start:'node server.js'};fs.writeFileSync(f,JSON.stringify(p,null,2))"
+          cd .next/standalone && zip -qr "$GITHUB_WORKSPACE/web-release.zip" .
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: web-release
+          path: web-release.zip
+          retention-days: 7
+
+  # Browser tests against the whole app, built with Docker Compose on a fresh runner. A deploy needs them to pass.
+  test-e2e:
+    needs: changes
+    if: github.event_name == 'workflow_dispatch' || needs.changes.outputs.e2e == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: e2e/package-lock.json
+
+      - name: Install Playwright and Chromium
+        working-directory: e2e
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
+      - name: Run the browser tests
+        run: npm run test:e2e
+
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: e2e-report
+          path: |
+            e2e/playwright-report
+            e2e/test-results
+          retention-days: 7
+
+  deploy-web:
+    needs: [build-web, test-e2e]
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-web
+      cancel-in-progress: false
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: web-release
+
+      - name: Deploy web to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ vars.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: web-release.zip
+          # Wipe wwwroot first so leftovers from earlier deploys (e.g. an Oryx
+          # build's compressed output) can't shadow the new build, then restart.
+          type: ZIP
+          clean: true
+          restart: true
+
+  build-api:
+    needs: changes
+    if: github.event_name == 'workflow_dispatch' || needs.changes.outputs.api == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: api
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: api/package-lock.json
+
+      - name: Install, typecheck, test and build
+        run: |
+          npm ci
+          npm run typecheck
+          npm test
+          npm run build
+
+      # Only what runs: the compiled dist/, production node_modules and package.json (start: node dist/server.js).
+      - name: Package with production dependencies only
+        run: |
+          rm -rf node_modules
+          npm ci --omit=dev
+          test -f dist/server.js
+          zip -qr "$GITHUB_WORKSPACE/api-release.zip" dist node_modules package.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: api-release
+          path: api-release.zip
+          retention-days: 7
+
+  deploy-api:
+    needs: [build-api, test-e2e]
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-api
+      cancel-in-progress: false
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: api-release
+
+      - name: Deploy API to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ vars.AZURE_API_NAME }}
+          publish-profile: ${{ secrets.AZURE_API_PUBLISH_PROFILE }}
+          package: api-release.zip

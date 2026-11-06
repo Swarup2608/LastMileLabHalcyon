@@ -1,0 +1,80 @@
+# Halcyon on your machine: Postgres with the dataset, the API and the web app. Local use only.
+#   npm run up                                        build and start everything (first run about 5 minutes)
+#   npm run admin:create -- you@example.com "Name"    create the first admin, then sign in at http://localhost:3000
+#   npm run down                                      stop it; add `-- -v` to delete the database too
+# Set DB_PORT, API_PORT or WEB_PORT if a default is taken. The database password and JWT_SECRET are generated on first start.
+
+services:
+  # Makes the database password on first start and keeps it in db-secrets, so none is kept in the repository.
+  secrets:
+    image: postgres:17
+    command: ["sh", "-c", "[ -s /secrets/db-password ] || head -c 24 /dev/urandom | od -An -tx1 | tr -d ' \\n' > /secrets/db-password"]
+    volumes:
+      - db-secrets:/secrets
+
+  db:
+    image: postgres:17
+    depends_on:
+      secrets:
+        condition: service_completed_successfully
+    # The 10× load test needs more shared memory than Docker's default 64 MB (docs/SCALE.md).
+    shm_size: 1g
+    environment:
+      POSTGRES_USER: halcyon
+      POSTGRES_PASSWORD_FILE: /secrets/db-password
+      POSTGRES_DB: halcyon
+    ports:
+      # 5434, so this can run beside the Quick start's halcyon-db on 5433.
+      - "127.0.0.1:${DB_PORT:-5434}:5432"
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+      - ./db/data:/data:ro
+      - db-data:/var/lib/postgresql/data
+      - db-secrets:/secrets:ro
+    healthcheck:
+      # Over TCP: during the first start the init scripts run on a socket-only server, which mustn't count as ready.
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U halcyon -d halcyon"]
+      interval: 3s
+      timeout: 3s
+      retries: 100
+
+  api:
+    build: ./api
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      NODE_ENV: development
+      PORT: 4000
+      # Empty: api/docker-entrypoint.sh generates one on first start and keeps it in api-secrets.
+      JWT_SECRET: ${JWT_SECRET:-}
+      CORS_ORIGINS: http://localhost:${WEB_PORT:-3000}
+      # Plain http on localhost, which Safari won't send Secure cookies over.
+      COOKIE_SECURE: "false"
+      # false turns demo accounts off.
+      DEMO_MODE: ${DEMO_MODE:-true}
+    ports:
+      - "127.0.0.1:${API_PORT:-4000}:4000"
+    volumes:
+      - api-secrets:/var/lib/halcyon
+      - db-secrets:/run/halcyon-db:ro
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:4000/ready').then((r) => process.exit(r.ok ? 0 : 1), () => process.exit(1))"]
+      interval: 3s
+      timeout: 3s
+      retries: 40
+
+  web:
+    build: ./web
+    depends_on:
+      api:
+        condition: service_healthy
+    environment:
+      API_URL: http://api:4000
+    ports:
+      - "127.0.0.1:${WEB_PORT:-3000}:3000"
+
+volumes:
+  db-data:
+  api-secrets:
+  db-secrets:

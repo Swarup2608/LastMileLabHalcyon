@@ -1,0 +1,10 @@
+{
+  "messageId": "sample-email-late",
+  "threadId": "t-sample-email-late",
+  "from": "Dana Ortiz <dana.ortiz@client001.example>",
+  "subject": "URGENT same day - PO 55123",
+  "snippet": "Hello, We need this today please. PO number: 55123 - 8 cartons of SKU HA-1037 Ship to: 200 West Madi",
+  "body": "Hello,\n\nWe need this today please.\n\nPO number: 55123\n- 8 cartons of SKU HA-1037\n\nShip to:\n200 West Madison Street, Floor 3\nChicago, IL 60606\n\nThanks,\nDana Ortiz\nOrtiz Dental Supply\ndana.ortiz@client001.example",
+  "dateHeader": "Fri, 30 Oct 2026 12:15:00 +0000",
+  "receivedAt": "2026-10-30T12:15:00Z"
+}

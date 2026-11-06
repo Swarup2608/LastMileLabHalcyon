@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 150" width="1280" height="150" role="img" aria-label="48,340 deliveries, 280 clients, 5 warehouses, 6 carriers, 4 AI agents">
+  <title>48,340 deliveries · 280 clients · 5 warehouses · 6 carriers · 4 AI agents</title>
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E1631"/><stop offset="1" stop-color="#0A0F22"/></linearGradient>
+    <style>
+      .t { font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+      .rise { opacity: 0; animation: rise .8s cubic-bezier(.2,.8,.2,1) forwards; }
+      @keyframes rise { from { opacity: 0; transform: translateY(10px) } to { opacity: 1; transform: none } }
+      .bar { transform-box: fill-box; transform-origin: left; transform: scaleX(0); animation: bar 1.4s cubic-bezier(.2,.8,.2,1) forwards, shimmer 3.2s ease-in-out 2s infinite; }
+      @keyframes bar { to { transform: scaleX(1) } }
+      @keyframes shimmer { 0%,100% { opacity: 1 } 50% { opacity: .45 } }
+      @media (prefers-reduced-motion: reduce) { .rise, .bar { animation: none; opacity: 1; transform: none } }
+    </style>
+  </defs>
+  <g class="rise" style="animation-delay:0.15s">
+    <rect x="0.5" y="0.5" width="242.2" height="149" rx="16" fill="url(#tile)" stroke="#FFFFFF" stroke-opacity="0.08"/>
+    <rect x="24.0" y="28" width="28" height="4" rx="2" fill="#FBBF24"/>
+    <text class="t" x="24.0" y="86" font-size="40" font-weight="800" letter-spacing="-1.5" fill="#F8FAFC">48,340</text>
+    <text class="t" x="24.0" y="114" font-size="14" font-weight="500" fill="#94A3B8">deliveries analysed</text>
+    <rect x="24.0" y="128" width="195.2" height="3" rx="1.5" fill="#FFFFFF" fill-opacity="0.06"/>
+    <rect class="bar" style="animation-delay:0.45s" x="24.0" y="128" width="195.2" height="3" rx="1.5" fill="#FBBF24" fill-opacity="0.8"/>
+  </g>
+  <g class="rise" style="animation-delay:0.30s">
+    <rect x="259.7" y="0.5" width="242.2" height="149" rx="16" fill="url(#tile)" stroke="#FFFFFF" stroke-opacity="0.08"/>
+    <rect x="283.2" y="28" width="28" height="4" rx="2" fill="#F472B6"/>
+    <text class="t" x="283.2" y="86" font-size="40" font-weight="800" letter-spacing="-1.5" fill="#F8FAFC">280</text>
+    <text class="t" x="283.2" y="114" font-size="14" font-weight="500" fill="#94A3B8">enterprise clients</text>
+    <rect x="283.2" y="128" width="195.2" height="3" rx="1.5" fill="#FFFFFF" fill-opacity="0.06"/>
+    <rect class="bar" style="animation-delay:0.60s" x="283.2" y="128" width="195.2" height="3" rx="1.5" fill="#F472B6" fill-opacity="0.8"/>
+  </g>
+  <g class="rise" style="animation-delay:0.45s">
+    <rect x="518.9" y="0.5" width="242.2" height="149" rx="16" fill="url(#tile)" stroke="#FFFFFF" stroke-opacity="0.08"/>
+    <rect x="542.4" y="28" width="28" height="4" rx="2" fill="#2DD4BF"/>
+    <text class="t" x="542.4" y="86" font-size="40" font-weight="800" letter-spacing="-1.5" fill="#F8FAFC">5</text>
+    <text class="t" x="542.4" y="114" font-size="14" font-weight="500" fill="#94A3B8">warehouses</text>
+    <rect x="542.4" y="128" width="195.2" height="3" rx="1.5" fill="#FFFFFF" fill-opacity="0.06"/>
+    <rect class="bar" style="animation-delay:0.75s" x="542.4" y="128" width="195.2" height="3" rx="1.5" fill="#2DD4BF" fill-opacity="0.8"/>
+  </g>
+  <g class="rise" style="animation-delay:0.60s">
+    <rect x="778.1" y="0.5" width="242.2" height="149" rx="16" fill="url(#tile)" stroke="#FFFFFF" stroke-opacity="0.08"/>
+    <rect x="801.6" y="28" width="28" height="4" rx="2" fill="#60A5FA"/>
+    <text class="t" x="801.6" y="86" font-size="40" font-weight="800" letter-spacing="-1.5" fill="#F8FAFC">6</text>
+    <text class="t" x="801.6" y="114" font-size="14" font-weight="500" fill="#94A3B8">carriers ranked</text>
+    <rect x="801.6" y="128" width="195.2" height="3" rx="1.5" fill="#FFFFFF" fill-opacity="0.06"/>
+    <rect class="bar" style="animation-delay:0.90s" x="801.6" y="128" width="195.2" height="3" rx="1.5" fill="#60A5FA" fill-opacity="0.8"/>
+  </g>
+  <g class="rise" style="animation-delay:0.75s">
+    <rect x="1037.3" y="0.5" width="242.2" height="149" rx="16" fill="url(#tile)" stroke="#FFFFFF" stroke-opacity="0.08"/>
+    <rect x="1060.8" y="28" width="28" height="4" rx="2" fill="#A78BFA"/>
+    <text class="t" x="1060.8" y="86" font-size="40" font-weight="800" letter-spacing="-1.5" fill="#F8FAFC">4</text>
+    <text class="t" x="1060.8" y="114" font-size="14" font-weight="500" fill="#94A3B8">AI agents</text>
+    <rect x="1060.8" y="128" width="195.2" height="3" rx="1.5" fill="#FFFFFF" fill-opacity="0.06"/>
+    <rect class="bar" style="animation-delay:1.05s" x="1060.8" y="128" width="195.2" height="3" rx="1.5" fill="#A78BFA" fill-opacity="0.8"/>
+  </g>
+</svg>

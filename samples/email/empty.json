@@ -1,0 +1,10 @@
+{
+  "messageId": "sample-email-empty",
+  "threadId": "t-sample-email-empty",
+  "from": "",
+  "subject": "",
+  "snippet": "",
+  "body": "",
+  "dateHeader": null,
+  "receivedAt": "2026-10-30T11:55:00Z"
+}

@@ -1,0 +1,47 @@
+{
+  "products": [
+    {
+      "product": "HA-1037",
+      "decision": "YES",
+      "nearestWarehouse": "W1",
+      "stockoutRisk": "HIGH",
+      "affectedWarehouses": [
+        "W1"
+      ],
+      "reallocationReason": "W1 missed 15 of 65 cartons and is below its safety buffer; W2 has spare stock.",
+      "recommendedTransfers": [
+        {
+          "source": "W9",
+          "destination": "W1",
+          "quantity": 10,
+          "reason": "unknown warehouse"
+        },
+        {
+          "source": "W1",
+          "destination": "W1",
+          "quantity": 10,
+          "reason": "to itself"
+        },
+        {
+          "source": "W2",
+          "destination": "W1",
+          "quantity": 0,
+          "reason": "nothing"
+        },
+        {
+          "source": "W2",
+          "destination": "W1",
+          "quantity": "lots",
+          "reason": "not a number"
+        }
+      ],
+      "expectedImpact": "W1 back above its safety buffer.",
+      "remainingShortage": 0,
+      "notes": []
+    }
+  ],
+  "summary": {
+    "reallocationRequired": 1,
+    "totalTransferUnits": 40
+  }
+}

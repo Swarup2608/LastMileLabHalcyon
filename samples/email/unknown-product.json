@@ -1,0 +1,10 @@
+{
+  "messageId": "sample-email-product",
+  "threadId": "t-sample-email-product",
+  "from": "Dana Ortiz <dana.ortiz@client001.example>",
+  "subject": "New item",
+  "snippet": "Hello, Please send 12 of the blue ergonomic chairs we talked about (SKU ZZ-00000). Ship to: 200 West",
+  "body": "Hello,\n\nPlease send 12 of the blue ergonomic chairs we talked about (SKU ZZ-00000).\n\nShip to:\n200 West Madison Street, Floor 3\nChicago, IL 60606\n\nThanks,\nDana Ortiz\nOrtiz Dental Supply\ndana.ortiz@client001.example",
+  "dateHeader": "Fri, 30 Oct 2026 11:35:00 +0000",
+  "receivedAt": "2026-10-30T11:35:00Z"
+}

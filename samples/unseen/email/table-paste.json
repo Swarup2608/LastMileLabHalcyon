@@ -1,0 +1,10 @@
+{
+  "messageId": "unseen-email-table-paste",
+  "threadId": "t-unseen-email-table-paste",
+  "from": "Dana Ortiz <dana.ortiz@client001.example>",
+  "subject": "FW: Purchase Order 4471-B",
+  "snippet": "Hi team, forwarding the PO our system raised overnight. Please process. Dana ---------- Forwarded message",
+  "body": "Hi team, forwarding the PO our system raised overnight. Please process.\nDana\n\n---------- Forwarded message ---------\nFrom: Procurement System <noreply@procure.client001.example>\nDate: Mon, 7 Dec 2026 at 06:58\nSubject: Purchase Order 4471-B\n\nPURCHASE ORDER 4471-B\n\nLine | Item code | Description     | Qty | UoM\n-----|-----------|-----------------|-----|----\n1    | HA-1037   | see catalogue   | 24  | CS\n2    | ME-1074   | see catalogue   | 6   | CS\n\nDELIVER TO\nORTIZ DENTAL SUPPLY - RECEIVING\n200 W MADISON ST FL 3\nCHICAGO IL 60606-3401\n\nRequested delivery: ASAP",
+  "dateHeader": "Mon, 07 Dec 2026 12:10:00 +0000",
+  "receivedAt": "2026-12-07T12:10:00Z"
+}

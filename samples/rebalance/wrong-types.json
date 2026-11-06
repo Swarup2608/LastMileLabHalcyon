@@ -1,0 +1,15 @@
+{
+  "products": [
+    {
+      "product": "HA-1037",
+      "decision": "MAYBE",
+      "stockoutRisk": 7,
+      "recommendedTransfers": "W2 to W1",
+      "remainingShortage": -5,
+      "notes": "check it"
+    }
+  ],
+  "summary": {
+    "totalTransferUnits": "30"
+  }
+}

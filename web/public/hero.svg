@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1280 460" width="1280" height="460" role="img" aria-label="Halcyon: stop late deliveries before they reach the dock">
+  <title>Halcyon: stop late deliveries before they reach the dock</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070B18"/>
+      <stop offset="0.55" stop-color="#0C1430"/>
+      <stop offset="1" stop-color="#101B3D"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0.78" cy="0.42" r="0.45">
+      <stop offset="0" stop-color="#2DD4BF" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2DD4BF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0.12" cy="0.95" r="0.5">
+      <stop offset="0" stop-color="#F59E0B" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#F59E0B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FBBF24"/>
+      <stop offset="0.5" stop-color="#F472B6"/>
+      <stop offset="1" stop-color="#2DD4BF"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="-0.4 0;0.4 0;-0.4 0" dur="8s" repeatCount="indefinite"/>
+    </linearGradient>
+    <linearGradient id="route" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2DD4BF" stop-opacity="0.15"/>
+      <stop offset="0.5" stop-color="#2DD4BF" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#60A5FA" stop-opacity="0.15"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#FFFFFF" stroke-opacity="0.045" stroke-width="1"/>
+    </pattern>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="card"><rect width="1280" height="460" rx="24"/></clipPath>
+    <clipPath id="typeClip">
+      <rect x="72" y="262" height="40" width="0">
+        <animate attributeName="width" from="0" to="620" dur="2.4s" begin="0.9s" fill="freeze" calcMode="discrete"
+          values="0;40;80;120;160;200;240;280;320;360;400;440;480;520;560;600;620" keyTimes="0;0.0625;0.125;0.1875;0.25;0.3125;0.375;0.4375;0.5;0.5625;0.625;0.6875;0.75;0.8125;0.875;0.9375;1"/>
+      </rect>
+    </clipPath>
+
+    <!-- Routes: warehouses (amber squares) to customer deliveries (teal dots); W1-W2 is a stock transfer -->
+    <path id="r1" d="M760 250 C 770 190, 790 140, 820 120"/>
+    <path id="r2" d="M760 250 C 760 310, 790 350, 830 370"/>
+    <path id="r3" d="M930 160 C 970 120, 1010 110, 1050 110"/>
+    <path id="r4" d="M930 160 C 980 170, 1030 200, 1060 240"/>
+    <path id="r5" d="M960 300 C 965 340, 975 370, 990 395"/>
+    <path id="r6" d="M1150 130 C 1180 170, 1195 210, 1190 250"/>
+    <path id="r7" d="M1120 350 C 1090 310, 1070 280, 1060 240"/>
+    <path id="r8" d="M960 300 C 920 350, 880 370, 830 370"/>
+    <path id="tr" d="M930 160 C 950 210, 960 250, 960 300"/>
+
+    <style>
+      .t { font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+      .mono { font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace; }
+      .rise { opacity: 0; animation: rise 0.9s cubic-bezier(.2,.8,.2,1) forwards; }
+      .d1 { animation-delay: .1s } .d2 { animation-delay: .35s } .d3 { animation-delay: 3.4s }
+      .d4 { animation-delay: 3.6s } .d5 { animation-delay: 3.8s } .d6 { animation-delay: 4.0s }
+      @keyframes rise { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: translateY(0) } }
+      .flow { stroke-dasharray: 6 10; animation: dash 1.6s linear infinite; }
+      @keyframes dash { to { stroke-dashoffset: -32 } }
+      .pulse { transform-box: fill-box; transform-origin: center; animation: pulse 2.4s ease-out infinite; }
+      .p2 { animation-delay: .8s } .p3 { animation-delay: 1.6s }
+      @keyframes pulse { 0% { transform: scale(1); opacity: .7 } 100% { transform: scale(3.2); opacity: 0 } }
+      .blink { animation: blink 1.1s steps(1) infinite; }
+      @keyframes blink { 50% { opacity: 0 } }
+      .scan { animation: scan 6s linear infinite; }
+      @keyframes scan { from { transform: translateX(-200px) } to { transform: translateX(1480px) } }
+      @media (prefers-reduced-motion: reduce) {
+        .rise, .flow, .pulse, .blink, .scan { animation: none; opacity: 1 }
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#card)">
+    <rect width="1280" height="460" fill="url(#bg)"/>
+    <rect width="1280" height="460" fill="url(#grid)"/>
+    <rect width="1280" height="460" fill="url(#glowA)"/>
+    <rect width="1280" height="460" fill="url(#glowB)"/>
+    <rect class="scan" x="0" y="0" width="160" height="460" fill="#FFFFFF" opacity="0.025"/>
+
+    <!-- ===== Network ===== -->
+    <g fill="none" stroke="url(#route)" stroke-width="1.6">
+      <use href="#r1" xlink:href="#r1"/><use href="#r2" xlink:href="#r2"/><use href="#r3" xlink:href="#r3"/>
+      <use href="#r4" xlink:href="#r4"/><use href="#r5" xlink:href="#r5"/><use href="#r6" xlink:href="#r6"/>
+      <use href="#r7" xlink:href="#r7"/><use href="#r8" xlink:href="#r8"/>
+    </g>
+    <g fill="none" stroke="#5EEAD4" stroke-opacity="0.55" stroke-width="1.6" class="flow">
+      <use href="#r1" xlink:href="#r1"/><use href="#r4" xlink:href="#r4"/><use href="#r6" xlink:href="#r6"/><use href="#r3" xlink:href="#r3"/>
+    </g>
+
+    <!-- Shipments moving along routes -->
+    <g filter="url(#soft)">
+      <circle r="4.5" fill="#FDE68A"><animateMotion dur="4.2s" repeatCount="indefinite" rotate="auto"><mpath href="#r1" xlink:href="#r1"/></animateMotion></circle>
+      <circle r="4.5" fill="#FDE68A"><animateMotion dur="5.6s" begin="1s" repeatCount="indefinite"><mpath href="#r4" xlink:href="#r4"/></animateMotion></circle>
+      <circle r="4.5" fill="#FDE68A"><animateMotion dur="4.8s" begin="0.4s" repeatCount="indefinite"><mpath href="#r6" xlink:href="#r6"/></animateMotion></circle>
+      <circle r="4" fill="#99F6E4"><animateMotion dur="3.6s" begin="1.8s" repeatCount="indefinite"><mpath href="#r3" xlink:href="#r3"/></animateMotion></circle>
+      <circle r="4" fill="#99F6E4"><animateMotion dur="3.2s" begin="0.6s" repeatCount="indefinite"><mpath href="#r5" xlink:href="#r5"/></animateMotion></circle>
+      <circle r="4" fill="#99F6E4"><animateMotion dur="4.4s" begin="2.2s" repeatCount="indefinite"><mpath href="#r2" xlink:href="#r2"/></animateMotion></circle>
+      <circle r="3.5" fill="#BFDBFE"><animateMotion dur="2.8s" begin="1.2s" repeatCount="indefinite"><mpath href="#r8" xlink:href="#r8"/></animateMotion></circle>
+      <circle r="3.5" fill="#BFDBFE"><animateMotion dur="3.4s" begin="2.6s" repeatCount="indefinite"><mpath href="#r7" xlink:href="#r7"/></animateMotion></circle>
+    </g>
+
+    <!-- Stock transfer W1 -> W2 (rebalance) -->
+    <use href="#tr" xlink:href="#tr" fill="none" stroke="#60A5FA" stroke-width="2" stroke-opacity="0.7" class="flow"/>
+    <rect width="9" height="9" rx="2" x="-4.5" y="-4.5" fill="#93C5FD" filter="url(#soft)"><animateMotion dur="3s" repeatCount="indefinite"><mpath href="#tr" xlink:href="#tr"/></animateMotion></rect>
+
+    <!-- Customer deliveries -->
+    <g>
+      <circle class="pulse" cx="1060" cy="240" r="6" fill="#2DD4BF"/>
+      <circle class="pulse p2" cx="830" cy="370" r="6" fill="#2DD4BF"/>
+      <circle class="pulse p3" cx="1190" cy="250" r="6" fill="#2DD4BF"/>
+      <g fill="#2DD4BF" stroke="#0B1226" stroke-width="3">
+        <circle cx="820" cy="120" r="6.5"/><circle cx="830" cy="370" r="6.5"/><circle cx="1050" cy="110" r="6.5"/>
+        <circle cx="1060" cy="240" r="6.5"/><circle cx="1190" cy="250" r="6.5"/><circle cx="990" cy="395" r="6.5"/>
+      </g>
+    </g>
+
+    <!-- Warehouses -->
+    <g>
+      <circle class="pulse" cx="760" cy="250" r="7" fill="#F59E0B"/>
+      <circle class="pulse p2" cx="930" cy="160" r="7" fill="#F59E0B"/>
+      <circle class="pulse p3" cx="960" cy="300" r="7" fill="#F59E0B"/>
+      <circle class="pulse p2" cx="1150" cy="130" r="7" fill="#F59E0B"/>
+      <circle class="pulse" cx="1120" cy="350" r="7" fill="#F59E0B"/>
+      <g fill="#0B1226" stroke="#FBBF24" stroke-width="2">
+        <rect x="751" y="241" width="18" height="18" rx="4"/>
+        <rect x="921" y="151" width="18" height="18" rx="4"/>
+        <rect x="951" y="291" width="18" height="18" rx="4"/>
+        <rect x="1141" y="121" width="18" height="18" rx="4"/>
+        <rect x="1111" y="341" width="18" height="18" rx="4"/>
+      </g>
+    </g>
+    <g class="t" font-size="11" font-weight="600" letter-spacing="1" fill="#94A3B8">
+      <text x="680" y="282">W5 · WEST</text>
+      <text x="870" y="196">W1 · MIDWEST 1</text>
+      <text x="978" y="318">W2 · MIDWEST 2</text>
+      <text x="1076" y="106">W4 · NORTHEAST</text>
+      <text x="1140" y="378">W3 · SOUTHEAST</text>
+      <text x="940" y="248" text-anchor="end" fill="#93C5FD" font-size="10" letter-spacing=".8">TRANSFER</text>
+    </g>
+
+    <!-- Live status card -->
+    <g class="rise d6">
+      <rect x="1020" y="402" width="216" height="40" rx="10" fill="#0B1226" fill-opacity="0.85" stroke="#FFFFFF" stroke-opacity="0.1"/>
+      <circle cx="1038" cy="422" r="4" fill="#34D399"><animate attributeName="opacity" values="1;.25;1" dur="1.6s" repeatCount="indefinite"/></circle>
+      <text class="mono" x="1050" y="426" font-size="11" fill="#5EEAD4">cutoff 08:00 · plan ready ✓</text>
+    </g>
+
+    <!-- Legend -->
+    <g class="t" font-size="11" fill="#64748B" font-weight="600" letter-spacing=".6">
+      <rect x="1088" y="34" width="10" height="10" rx="2.5" fill="none" stroke="#FBBF24" stroke-width="1.6"/><text x="1104" y="43">Warehouse</text>
+      <circle cx="1184" cy="39" r="4.5" fill="#2DD4BF"/><text x="1194" y="43">Delivery</text>
+    </g>
+
+    <!-- ===== Copy ===== -->
+    <g class="rise d1">
+      <rect x="72" y="72" width="248" height="30" rx="15" fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" stroke-opacity="0.12"/>
+      <circle cx="92" cy="87" r="4" fill="#FBBF24"/>
+      <text class="t" x="104" y="91.5" font-size="12" font-weight="600" letter-spacing="1.6" fill="#CBD5E1">LAST-MILE LABS · HALCYON</text>
+    </g>
+
+    <g class="rise d2">
+      <text class="t" x="68" y="190" font-size="96" font-weight="800" letter-spacing="-3.5" fill="#F8FAFC">Halcyon</text>
+      <rect x="74" y="210" width="190" height="5" rx="2.5" fill="url(#accent)"/>
+    </g>
+
+    <g clip-path="url(#typeClip)">
+      <text class="t" x="72" y="290" font-size="26" font-weight="500" fill="#CBD5E1">Stop late deliveries <tspan fill="#FBBF24" font-style="italic" font-weight="700">before</tspan> they reach the dock.</text>
+    </g>
+
+    <g class="rise d3">
+      <text class="t" x="72" y="334" font-size="15" fill="#94A3B8">AI order intake, same-day carrier planning and inventory rebalancing</text>
+      <text class="t" x="72" y="356" font-size="15" fill="#94A3B8">for a five-warehouse, six-carrier logistics network.</text>
+    </g>
+
+    <g class="t" font-size="12.5" font-weight="600">
+      <g class="rise d4">
+        <rect x="72" y="384" width="134" height="32" rx="9" fill="#F59E0B" fill-opacity="0.12" stroke="#F59E0B" stroke-opacity="0.45"/>
+        <text x="139" y="404.5" text-anchor="middle" fill="#FCD34D">Email → Order</text>
+      </g>
+      <g class="rise d5">
+        <rect x="216" y="384" width="134" height="32" rx="9" fill="#2DD4BF" fill-opacity="0.10" stroke="#2DD4BF" stroke-opacity="0.45"/>
+        <text x="283" y="404.5" text-anchor="middle" fill="#5EEAD4">Carrier planning</text>
+      </g>
+      <g class="rise d6">
+        <rect x="360" y="384" width="134" height="32" rx="9" fill="#60A5FA" fill-opacity="0.10" stroke="#60A5FA" stroke-opacity="0.45"/>
+        <text x="427" y="404.5" text-anchor="middle" fill="#93C5FD">Stock rebalance</text>
+      </g>
+    </g>
+  </g>
+  <rect x="0.5" y="0.5" width="1279" height="459" rx="23.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.08"/>
+</svg>

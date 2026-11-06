@@ -1,0 +1,15 @@
+{
+  "reference": "PO-55121",
+  "lines": [
+    {
+      "sku": "HA-1037",
+      "quantity": 12
+    }
+  ],
+  "address": {
+    "street": "1 Market Street",
+    "city": "San Francisco",
+    "region": "CA",
+    "postal": "94105"
+  }
+}

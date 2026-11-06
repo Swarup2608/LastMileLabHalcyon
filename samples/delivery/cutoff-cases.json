@@ -1,0 +1,38 @@
+{
+  "rule": {
+    "sameDayCutoff": "08:00",
+    "timeZone": "America/New_York"
+  },
+  "cases": [
+    {
+      "receivedAt": "2026-10-30T11:20:00Z",
+      "note": "07:20 in New York, before the cutoff",
+      "date": "2026-10-30",
+      "sameDay": true
+    },
+    {
+      "receivedAt": "2026-10-30T11:59:00Z",
+      "note": "07:59, one minute before",
+      "date": "2026-10-30",
+      "sameDay": true
+    },
+    {
+      "receivedAt": "2026-10-30T12:00:00Z",
+      "note": "08:00 exactly counts as after",
+      "date": "2026-10-31",
+      "sameDay": false
+    },
+    {
+      "receivedAt": "2026-10-30T12:15:00Z",
+      "note": "08:15, after the cutoff",
+      "date": "2026-10-31",
+      "sameDay": false
+    },
+    {
+      "receivedAt": "2026-11-01T01:00:00Z",
+      "note": "21:00 on 31 October in New York",
+      "date": "2026-11-01",
+      "sameDay": false
+    }
+  ]
+}

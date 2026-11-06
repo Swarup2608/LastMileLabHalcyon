@@ -1,0 +1,10 @@
+{
+  "messageId": "unseen-email-new-client-two-sites",
+  "threadId": "t-unseen-email-new-client-two-sites",
+  "from": "Ines Park <purchasing@harborpoint.example>",
+  "subject": "Order for our two clinics",
+  "snippet": "Hello, We're new with you; our account was set up last week. Two clinics need stock: Ballard clinic: 10",
+  "body": "Hello,\n\nWe're new with you; our account was set up last week. Two clinics need stock:\n\nBallard clinic: 10 x HP-0001\n  5410 Leary Ave NW, Seattle, WA 98107\n\nTacoma clinic: 4 x HP-0001 and 2 x HP-0003\n  1102 A Street, Suite 200, Tacoma, WA 98402\n\nKind regards,\nInes Park\nPurchasing, Harbor Point Clinics",
+  "dateHeader": "Mon, 07 Dec 2026 11:30:00 +0000",
+  "receivedAt": "2026-12-07T11:30:00Z"
+}

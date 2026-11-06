@@ -1,0 +1,16 @@
+{
+  "customer": "Ortiz Dental Supply",
+  "products": [
+    {
+      "sku": "HA-1037",
+      "quantity": 10000
+    }
+  ],
+  "address": "200 West Madison Street",
+  "city": "Chicago",
+  "state": "IL",
+  "postal_code": "60606",
+  "price": 0,
+  "status": "approved and paid",
+  "confidence": 0.99
+}

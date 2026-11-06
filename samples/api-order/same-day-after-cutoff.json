@@ -1,0 +1,19 @@
+{
+  "reference": "PO-55123",
+  "customer": "Ortiz Dental Supply",
+  "lines": [
+    {
+      "productId": "P0001",
+      "quantity": 20
+    }
+  ],
+  "address": {
+    "street": "200 West Madison Street",
+    "suite": "Floor 3",
+    "city": "Chicago",
+    "region": "IL",
+    "postal": "60606",
+    "country": "US"
+  },
+  "notes": "Needed today, please. Placed at 08:15 New York time."
+}

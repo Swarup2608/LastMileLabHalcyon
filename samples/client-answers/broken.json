@@ -1,0 +1,15 @@
+{
+  "address": {
+    "street": "200 West Madison Street",
+    "zip": "60606"
+  },
+  "lines": {
+    "0": {
+      "quantity": 0
+    },
+    "first": {
+      "quantity": 5
+    }
+  },
+  "price": 0
+}

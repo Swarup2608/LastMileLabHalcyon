@@ -1,0 +1,21 @@
+{
+  "reference": "PO-55126",
+  "lines": [
+    {
+      "productId": "P9999",
+      "quantity": 5
+    },
+    {
+      "sku": "ZZ-00000",
+      "quantity": 5
+    }
+  ],
+  "address": {
+    "street": "200 West Madison Street",
+    "suite": "Floor 3",
+    "city": "Chicago",
+    "region": "IL",
+    "postal": "60606",
+    "country": "US"
+  }
+}

@@ -1,0 +1,7 @@
+node_modules
+.DS_Store
+.env
+# Root lockfile makes Next nest the standalone build under .next/standalone/web/
+/package-lock.json
+deploy.yml
+*.xlsx

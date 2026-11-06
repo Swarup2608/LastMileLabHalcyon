@@ -1,0 +1,17 @@
+{
+  "reference": "PO-55125",
+  "lines": [
+    {
+      "productId": "P0001",
+      "quantity": 10000000
+    }
+  ],
+  "address": {
+    "street": "200 West Madison Street",
+    "suite": "Floor 3",
+    "city": "Chicago",
+    "region": "IL",
+    "postal": "60606",
+    "country": "US"
+  }
+}

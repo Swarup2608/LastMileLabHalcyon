@@ -1,0 +1,19 @@
+{
+  "reference": "PO-55131",
+  "customer": "Ortiz Dental Supply",
+  "lines": [
+    {
+      "productId": "P0001",
+      "quantity": 20
+    }
+  ],
+  "address": {
+    "street": "1 Lamp Post Lane",
+    "suite": "Floor 3",
+    "city": "Cair Paravel",
+    "region": "Narnia",
+    "postal": "ABCDE",
+    "country": "US"
+  },
+  "notes": "Dock 4, deliveries before 16:00."
+}

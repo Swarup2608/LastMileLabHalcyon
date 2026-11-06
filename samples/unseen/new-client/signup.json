@@ -1,0 +1,13 @@
+{
+  "clientName": "Harbor Point Clinics",
+  "region": "West",
+  "primaryOrderChannel": "Email",
+  "accountTier": "Tier 3",
+  "slaPenaltyClause": true,
+  "annualRevenueUsd": 380000,
+  "contact": {
+    "name": "Ines Park",
+    "email": "purchasing@harborpoint.example",
+    "password": "CHANGE-ME"
+  }
+}

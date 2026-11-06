@@ -1,0 +1,26 @@
+{
+  "name": "halcyon",
+  "private": true,
+  "description": "Halcyon monorepo: Next.js web app (web/) and Express API (api/)",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "install:all": "npm install --no-package-lock && npm ci --prefix api && npm ci --prefix web",
+    "dev": "concurrently -k -n api,web -c blue,green \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "npm run dev --prefix api",
+    "dev:web": "npm run dev --prefix web",
+    "build": "npm run build --prefix api && npm run build --prefix web",
+    "build:api": "npm run build --prefix api",
+    "build:web": "npm run build --prefix web",
+    "typecheck": "npm run typecheck --prefix api",
+    "lint": "npm run lint --prefix web",
+    "test:e2e": "bash e2e/run.sh",
+    "up": "docker compose up --build --detach --wait",
+    "down": "docker compose down",
+    "admin:create": "docker compose exec api sh docker-entrypoint.sh node dist/db/create-admin.js"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  }
+}

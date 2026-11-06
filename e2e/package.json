@@ -1,0 +1,12 @@
+{
+  "name": "halcyon-e2e",
+  "private": true,
+  "description": "Browser tests for the main Halcyon screens. Run from the repo root with npm run test:e2e.",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^24"
+  }
+}

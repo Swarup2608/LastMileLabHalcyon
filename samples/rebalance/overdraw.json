@@ -1,0 +1,26 @@
+{
+  "products": [
+    {
+      "product": "HA-1037",
+      "decision": "YES",
+      "nearestWarehouse": "W1",
+      "stockoutRisk": "HIGH",
+      "affectedWarehouses": [
+        "W1"
+      ],
+      "reallocationReason": "W1 missed 15 of 65 cartons and is below its safety buffer; W2 has spare stock.",
+      "recommendedTransfers": [
+        {
+          "source": "W2",
+          "destination": "W1",
+          "quantity": 5000,
+          "reason": "everything"
+        }
+      ],
+      "expectedImpact": "W1 back above its safety buffer.",
+      "remainingShortage": 0,
+      "notes": []
+    }
+  ],
+  "summary": {}
+}

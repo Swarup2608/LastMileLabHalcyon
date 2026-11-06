@@ -1,0 +1,10 @@
+{
+  "messageId": "sample-email-good",
+  "threadId": "t-sample-email-good",
+  "from": "Dana Ortiz <dana.ortiz@client001.example>",
+  "subject": "PO 55120 - 20 cartons",
+  "snippet": "Hello Halcyon order team, Please ship the following order. PO number: 55120 Products: - 20 cartons o",
+  "body": "Hello Halcyon order team,\n\nPlease ship the following order.\n\nPO number: 55120\n\nProducts:\n- 20 cartons of SKU HA-1037\n\nShip to:\n200 West Madison Street, Floor 3\nChicago, IL 60606\n\nThanks,\nDana Ortiz\nOrtiz Dental Supply\ndana.ortiz@client001.example",
+  "dateHeader": "Fri, 30 Oct 2026 11:20:00 +0000",
+  "receivedAt": "2026-10-30T11:20:00Z"
+}
